@@ -1,0 +1,23 @@
+server :
+  port : 8085
+spring:
+  activemq:
+    broker-url : localhost:5672
+    user : user
+    password : user
+  datasource:
+    url : jdbc:postgresql://localhost:5432/postgres
+    username : user
+    password : user
+
+  jpa :
+    properties :
+      hibernate:
+        hbm2ddl:
+          auto : update
+token: "7451419150:AAEYwnApiz_v99gvJGYGzSv6PUAgPDpyhec"
+service :
+  file_info:
+    uri: https://api.telegram.org/bot{token}/getFile?file_id={fileId}
+  file_storage :
+    uri: https://api.telegram.org/file/bot{token}/{filePath}

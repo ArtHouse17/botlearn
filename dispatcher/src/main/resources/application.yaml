@@ -1,0 +1,11 @@
+
+bot:
+  name: "LearnProjBot"
+  token: "7451419150:AAEYwnApiz_v99gvJGYGzSv6PUAgPDpyhec"
+server :
+  port : 8084
+spring:
+  activemq:
+    broker-url : localhost:5672
+    user : user
+    password : user
