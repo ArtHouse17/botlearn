@@ -6,10 +6,10 @@
   <packaging>pom</packaging>
   <modules>
     <module>dispatcher</module>
-    <module>common-rabbitmq</module>
     <module>node</module>
-    <module>common-jpa</module>
       <module>rest-service</module>
+      <module>common</module>
+      <module>mail-service</module>
   </modules>
   <properties>
     <telegrambot.starter.version>6.1.0</telegrambot.starter.version>
@@ -44,6 +44,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>art.com</groupId>
+      <artifactId>common</artifactId>
+      <version>0.0.1</version>
     </dependency>
   </dependencies>
   <build>

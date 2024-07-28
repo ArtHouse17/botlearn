@@ -1,13 +1,14 @@
-server :
-  port : 8086
+server:
+  port: ${NODE_PORT:8086}
 spring:
   datasource:
-    url : jdbc:postgresql://localhost:5432/postgres
-    username : user
-    password : user
-
-  jpa :
-    properties :
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5433/postgres}
+    username: ${POSTGRES_USERNAME:user}
+    password: ${POSTGRES_PASSWORD:user}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
       hibernate:
         hbm2ddl:
-          auto : update
+          auto: update
+salt: ${SALT:Pp12GSnZ5CwkrrkngnbiunfiubvnrinJIBVNRNBRUnJFGNIUgnriejngjndiugnUIPrgsdgjnsijnf}

@@ -1,11 +1,20 @@
+server:
+  port: ${DISPATCHER_PORT:8084}
+  ssl:
+    enabled: false
 
 bot:
-  name: "LearnProjBot"
-  token: "7451419150:AAEYwnApiz_v99gvJGYGzSv6PUAgPDpyhec"
-server :
-  port : 8084
+  name: ${TG_BOT_NAME}
+  token: ${TG_BOT_TOKEN}
+  uri: ${TG_BOT_URI}
+
 spring:
-  activemq:
+  rabbitmq:
     broker-url : localhost:5672
-    user : user
-    password : user
+    username: ${RABBIT_USERNAME:user}
+    password: ${RABBIT_PASSWORD:user}
+    queues:
+      text-message-update: ${RABBIT_TEXT_MESSAGE_UPDATE_QUEUE}
+      doc-message-update: ${RABBIT_DOC_MESSAGE_UPDATE_QUEUE}
+      photo-message-update: ${RABBIT_PHOTO_MESSAGE_UPDATE_QUEUE}
+      answer-message: ${RABBIT_ANSWER_MESSAGE_QUEUE}
