@@ -5,7 +5,12 @@ volumes:
     driver: local
   postgres-data:
     driver: local
+  pgadmin-data:
+    driver: local
 
+networks:
+  appnet:
+    driver: bridge
 
 services:
   dispatcher:
@@ -37,6 +42,8 @@ services:
     depends_on:
       rabbit-mq:
         condition: service_healthy
+    networks :
+      - appnet
 
   node:
     container_name: node
@@ -73,6 +80,9 @@ services:
         condition: service_healthy
       postgres-db:
         condition: service_healthy
+    networks :
+      - appnet
+
 
   rest-service:
     container_name: rest-service
@@ -96,6 +106,8 @@ services:
     depends_on:
       postgres-db:
         condition: service_healthy
+    networks :
+      - appnet
 
   mail-service:
     container_name: mail-service
@@ -124,6 +136,8 @@ services:
     depends_on:
       rabbit-mq:
         condition: service_healthy
+    networks :
+      - appnet
 
   rabbit-mq:
     container_name: rabbit-mq
@@ -144,6 +158,9 @@ services:
       retries: 6
       start_period: 30s
     restart: unless-stopped
+    networks :
+      - appnet
+
 
   postgres-db :
     container_name : postgres-db
@@ -164,3 +181,21 @@ services:
       retries : 3
       start_period : 60s
     restart : unless-stopped
+    networks :
+      - appnet
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - appnet
+    restart: unless-stopped

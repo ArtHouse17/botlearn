@@ -1,14 +1,19 @@
 server:
   port: ${NODE_PORT:8086}
+
 spring:
   datasource:
     url: ${POSTGRES_URL:jdbc:postgresql://localhost:5433/postgres}
     username: ${POSTGRES_USERNAME:user}
     password: ${POSTGRES_PASSWORD:user}
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         hbm2ddl:
           auto: update
+logging:
+  level:
+    org.hibernate: DEBUG
+
 salt: ${SALT:Pp12GSnZ5CwkrrkngnbiunfiubvnrinJIBVNRNBRUnJFGNIUgnriejngjndiugnUIPrgsdgjnsijnf}
