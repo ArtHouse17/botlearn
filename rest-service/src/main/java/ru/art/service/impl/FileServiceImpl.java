@@ -6,7 +6,6 @@ import ru.art.dao.AppPhotoDAO;
 import ru.art.entity.AppDocument;
 import ru.art.entity.AppPhoto;
 import ru.art.service.FileService;
-import ru.art.utils.CryptoTool;
 import ru.art.utils.Decoder;
 
 @Service
@@ -23,6 +22,7 @@ public class FileServiceImpl implements FileService {
         this.appPhotoDAO = appPhotoDAO;
         this.decoder = decoder;
     }
+
 
     @Override
     public AppDocument getDocument(String hash) {

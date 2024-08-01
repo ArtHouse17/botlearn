@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import static ru.art.model.RabbitQueue.*;
 
 @Getter
 @Setter
@@ -34,19 +33,19 @@ public class RabbitConfiguration {
 
     @Bean
     public Queue textMessageQueue() {
-        return new Queue(TEXT_MESSAGE_UPDATE);
+        return new Queue(textMessageUpdateQueue);
     }
     @Bean
     public Queue photoMessageQueue() {
-        return new Queue(PHOTO_MESSAGE_UPDATE);
+        return new Queue(docMessageUpdateQueue);
     }
     @Bean
     public Queue docMessageQueue() {
-        return new Queue(DOC_MESSAGE_UPDATE);
+        return new Queue(photoMessageUpdateQueue);
     }
     @Bean
     public Queue anserMessageQueue() {
-        return new Queue(ANSWER_MESSAGE);
+        return new Queue(answerMessageQueue);
     }
 
 }

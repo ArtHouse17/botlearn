@@ -1,7 +1,9 @@
 package ru.art.entity;
 
-import jakarta.persistence.*;
+
 import lombok.*;
+
+import javax.persistence.*;
 
 
 @Builder
@@ -9,8 +11,8 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "App_photo")
 @Entity
-@Table(name = "app_photo")
 public class AppPhoto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

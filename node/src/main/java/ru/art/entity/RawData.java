@@ -21,7 +21,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "raw_data")
+@Table(name = "Raw_data")
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class RawData {
     @Id

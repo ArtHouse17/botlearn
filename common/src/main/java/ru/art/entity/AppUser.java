@@ -1,10 +1,11 @@
 package ru.art.entity;
 
-import jakarta.persistence.*;
+
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import ru.art.enums.UserState;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Setter
@@ -13,8 +14,8 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "App_user")
 @Entity
-@Table(name = "app_user")
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

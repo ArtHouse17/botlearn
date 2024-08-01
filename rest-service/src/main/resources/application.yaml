@@ -12,7 +12,8 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         hbm2ddl:
           auto: update
-logging:
+  main:
+    allow-bean-definition-overriding: true
   level:
     org.hibernate: DEBUG
 

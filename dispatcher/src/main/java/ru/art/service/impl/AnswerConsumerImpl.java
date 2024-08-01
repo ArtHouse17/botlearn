@@ -6,7 +6,6 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import ru.art.controller.UpdateProcessor;
 import ru.art.service.AnswerConumer;
 
-import static ru.art.model.RabbitQueue.ANSWER_MESSAGE;
 
 @Service
 public class AnswerConsumerImpl implements AnswerConumer {

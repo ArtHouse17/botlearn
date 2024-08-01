@@ -9,7 +9,6 @@ import ru.art.utils.MessageUtils;
 
 import java.util.Random;
 
-import static ru.art.model.RabbitQueue.*;
 
 
 @Component

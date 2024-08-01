@@ -2,7 +2,7 @@ server :
   port : ${NODE_PORT:8085}
 spring:
   activemq:
-    broker-url : localhost:5672
+    broker-url : ${RABBIT_HOST}:${RABBIT_PORT}
     user : ${RABBIT_USERNAME:guest}
     password : ${RABBIT_PASSWORD:guest}
     queues :
@@ -12,7 +12,7 @@ spring:
       answer-message : ${RABBIT_ANSWER_MESSAGE_QUEUE}
       registration-mail: ${RABBIT_REGISTRATION_MAIL_QUEUE}
   datasource:
-    url : ${POSRGRES_URL}
+    url : ${POSTGRES_URL:jdbc:postgresql://postgres-db:5432/postgres}
     username : ${POSTGRES_USERNAME:user}
     password : ${POSTGRES_PASSWORD:user}
 

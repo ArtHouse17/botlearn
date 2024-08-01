@@ -1,7 +1,8 @@
 package ru.art.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 
 @Getter
@@ -9,7 +10,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "binary_content")
+@Table(name = "Binary_content")
 @Entity
 public class BinaryContent {
     @Id

@@ -14,6 +14,8 @@ networks:
 
 services:
   dispatcher:
+    env_file :
+      - .env
     container_name: dispatcher
     restart: on-failure
     build:
@@ -46,6 +48,8 @@ services:
       - appnet
 
   node:
+    env_file :
+      - .env
     container_name: node
     restart: on-failure
     build:
@@ -85,6 +89,8 @@ services:
 
 
   rest-service:
+    env_file :
+      - .env
     container_name: rest-service
     restart: on-failure
     build:
@@ -110,6 +116,8 @@ services:
       - appnet
 
   mail-service:
+    env_file :
+      - .env
     container_name: mail-service
     restart: on-failure
     build:
@@ -140,6 +148,8 @@ services:
       - appnet
 
   rabbit-mq:
+    env_file :
+      - .env
     container_name: rabbit-mq
     hostname: rabbitmq
     image: rabbitmq:3.12.12-management-alpine
@@ -163,6 +173,8 @@ services:
 
 
   postgres-db :
+    env_file :
+      - .env
     container_name : postgres-db
     hostname : postgres
     image : postgres:14.5
@@ -185,17 +197,18 @@ services:
       - appnet
 
   pgadmin:
+    env_file:
+      - .env
     container_name: pgadmin_container
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
     ports:
-      - "${PGADMIN_PORT:-5050}:80"
+      - ${PGADMIN_PORT_MAPPING}
     networks:
       - appnet
     restart: unless-stopped

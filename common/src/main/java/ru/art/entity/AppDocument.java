@@ -1,6 +1,6 @@
 package ru.art.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 @Builder
@@ -8,8 +8,8 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "App_document")
 @Entity
-@Table(name = "app_document")
 public class AppDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +17,7 @@ public class AppDocument {
     private String telegramFieldId;
     private String docName;
     @OneToOne
+    @JoinColumn(name = "binary_content_id")
     private BinaryContent binaryContent;
     private String mimeType;
     private Long fileSize;
