@@ -8,10 +8,10 @@ spring:
     username : ${MAIL_USERNAME}
     password : ${MAIL_PASSWORD}
   rabbitmq:
-    host : ${RABBIT_HOST:localhost}
-    port : ${RABBIT_PORT:5673}
-    username : ${RABBIT_USERNAME:guest}
-    password : ${RABBIT_PASSWORD:guest}
+    host: ${RABBIT_HOST}
+    port : 8085
+    username: ${RABBIT_USERNAME}
+    password: ${RABBIT_PASSWORD}
     queues:
       registration-mail: ${RABBIT_REGISTRATION_MAIL_QUEUE}
 service:

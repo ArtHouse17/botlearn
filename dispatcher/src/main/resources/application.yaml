@@ -4,17 +4,18 @@ server:
     enabled: false
 
 bot:
-  name: ${TG_BOT_NAME}
-  token: ${TG_BOT_TOKEN}
-  uri: ${TG_BOT_URI}
+  name: ${TG_BOT_NAME:Learnttbot}
+  token: ${TG_BOT_TOKEN:7307863648:AAFH2aJiBBM7D9vqWAanlYzZUsPs5CwOjZM}
+  uri: ${TG_BOT_URI:https://343d-151-236-222-152.ngrok-free.app}
 
 spring:
   rabbitmq:
-    broker-url : localhost:5672
-    username: ${RABBIT_USERNAME:user}
-    password: ${RABBIT_PASSWORD:user}
+    host : ${RABBIT_HOST:localhost}
+    port : 5672
+    username: ${RABBIT_USERNAME:guest}
+    password: ${RABBIT_PASSWORD:guest}
     queues:
-      text-message-update: ${RABBIT_TEXT_MESSAGE_UPDATE_QUEUE}
-      doc-message-update: ${RABBIT_DOC_MESSAGE_UPDATE_QUEUE}
-      photo-message-update: ${RABBIT_PHOTO_MESSAGE_UPDATE_QUEUE}
-      answer-message: ${RABBIT_ANSWER_MESSAGE_QUEUE}
+      text-message-update: ${RABBIT_TEXT_MESSAGE_UPDATE_QUEUE:text_message_update_queue}
+      doc-message-update: ${RABBIT_DOC_MESSAGE_UPDATE_QUEUE:doc_message_update_queue}
+      photo-message-update: ${RABBIT_PHOTO_MESSAGE_UPDATE_QUEUE:photo_message_update_queue}
+      answer-message: ${RABBIT_ANSWER_MESSAGE_QUEUE:answer_message_queue}

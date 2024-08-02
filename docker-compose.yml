@@ -28,6 +28,7 @@ services:
       TG_BOT_NAME: ${TG_BOT_NAME}
       TG_BOT_TOKEN: ${TG_BOT_TOKEN}
       TG_BOT_URI: ${TG_BOT_URI}
+      RABBIT_URL: ${RABBIT_URL}
       RABBIT_HOST: ${RABBIT_HOST}
       RABBIT_PORT: ${RABBIT_PORT}
       RABBIT_USERNAME: ${RABBIT_USERNAME}
@@ -57,6 +58,7 @@ services:
       dockerfile: ./node/Dockerfile
     environment:
       NODE_PORT: ${NODE_PORT}
+      RABBIT_URL: ${RABBIT_URL}
       RABBIT_HOST: ${RABBIT_HOST}
       RABBIT_PORT: ${RABBIT_PORT}
       RABBIT_USERNAME: ${RABBIT_USERNAME}

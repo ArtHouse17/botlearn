@@ -1,10 +1,12 @@
 server :
   port : ${NODE_PORT:8085}
 spring:
+  rabbitmq:
+    host : ${RABBIT_HOST}
+    port : 8085
+    username : ${RABBIT_USERNAME}
+    password : ${RABBIT_PASSWORD}
   activemq:
-    broker-url : ${RABBIT_HOST}:${RABBIT_PORT}
-    user : ${RABBIT_USERNAME:guest}
-    password : ${RABBIT_PASSWORD:guest}
     queues :
       text-message-update : ${RABBIT_TEXT_MESSAGE_UPDATE_QUEUE}
       doc-message-update : ${RABBIT_DOC_MESSAGE_UPDATE_QUEUE}

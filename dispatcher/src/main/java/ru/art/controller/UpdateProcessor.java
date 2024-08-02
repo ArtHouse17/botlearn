@@ -38,6 +38,7 @@ public class UpdateProcessor {
 
         if (update.hasMessage()) {
             distributeMessagesByType(update);
+            System.out.println("UpdateRecived: " + update);
         }else{
             System.out.println("Error");
         }
